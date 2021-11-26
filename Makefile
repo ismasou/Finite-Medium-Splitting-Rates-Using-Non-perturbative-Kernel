@@ -7,8 +7,11 @@ MULTIPLE_SOFT_SCATTERING_KERNEL=999
 
 COLLISION_KERNEL=${LATTICE_EQCD_KERNEL}
 
+# Splitting rate of a gluon emission by a gluon g->gg
 GToGG=11
+# Splitting rate of a gluon emission by a quark q->gq
 QToQG=21
+# Splitting rate of a gluon splitting to a quark anti-quark pair g->qqbar
 GToQQ=12
 PROCESS=${GToGG}
 
