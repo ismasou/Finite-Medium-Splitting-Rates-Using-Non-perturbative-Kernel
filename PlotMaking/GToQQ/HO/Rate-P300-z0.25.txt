@@ -1,5 +1,5 @@
 # Parameter : G->QQ gs = 1.66238 P = 300 T = 1 z = 0.25 mDSqr= 4.14527 Qs^2 = 10.288 q0= 0.777193 q3= 1.88165 muSqr= 0.444905
-# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(g^4T P(z)) dGamma/dz 
+# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(T P(z)) dGamma/dz 
 0.000888889 -0.000797432 
 0.00177778 0.00029142 
 0.00266667 0.000305684 
