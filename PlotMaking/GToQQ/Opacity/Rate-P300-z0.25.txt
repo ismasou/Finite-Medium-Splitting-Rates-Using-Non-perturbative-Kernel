@@ -1,4 +1,5 @@
 # Parameter : G->QQ gs = 1.66238 P = 300 T = 1 z = 0.25
+# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(T P(z)) dGamma/dz 
 0 0
 0.001 6.03968e-05
 0.00209411 0.000116663

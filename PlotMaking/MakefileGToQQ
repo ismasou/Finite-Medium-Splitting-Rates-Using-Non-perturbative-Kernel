@@ -17,17 +17,17 @@ PROCESS=${GToQQ}
 all: FullRate OpacityRate OpacityImproved ImprovedOpacity
 
 FullRate : 
-	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DPROCESS=${PROCESS} -DCOLLISION_KERNEL=${COLLISION_KERNEL} -pipe -O3 src/FiniteMedium.cpp -o FullRate.out -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
+	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DPROCESS=${PROCESS} -DCOLLISION_KERNEL=${COLLISION_KERNEL} -pipe -O3 src/FiniteMedium.cpp -o FullRate.exe -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
 	mkdir -p OUTPUT 
 
 OpacityRate : 
-	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DPROCESS=${PROCESS} -DCOLLISION_KERNEL=${COLLISION_KERNEL} -pipe -O3 src/Opacity.cpp -o OpacityRate.out -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
+	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DPROCESS=${PROCESS} -DCOLLISION_KERNEL=${COLLISION_KERNEL} -pipe -O3 src/Opacity.cpp -o OpacityRate.exe -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
 	mkdir -p Opacity 
 
 ImprovedOpacity:
-	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DCOLLISION_KERNEL=${COLLISION_KERNEL} -DPROCESS=${PROCESS} -pipe -O3 src/ImprovedOpacity.cpp -o ImprovedOpacity.out -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
+	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DCOLLISION_KERNEL=${COLLISION_KERNEL} -DPROCESS=${PROCESS} -pipe -O3 src/ImprovedOpacity.cpp -o ImprovedOpacity.exe -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
 	mkdir -p OpacityImproved
 
 Harmonic:
-	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DCOLLISION_KERNEL=${COLLISION_KERNEL} -DPROCESS=${PROCESS} -pipe -O3 src/HO.cpp -o HO.out -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
+	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DCOLLISION_KERNEL=${COLLISION_KERNEL} -DPROCESS=${PROCESS} -pipe -O3 src/HO.cpp -o HO.exe -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
 	mkdir -p HO

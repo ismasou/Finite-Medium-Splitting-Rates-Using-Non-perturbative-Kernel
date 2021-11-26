@@ -1,3 +1,5 @@
+# Parameter :  gs = 1.66238 P = 300 T = 1 z = 0.25 mDSqr= 4.14527
+# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(T P(z)) dGamma/dz 
 0 0
 0.005 0.000234016
 0.01 0.000430562
