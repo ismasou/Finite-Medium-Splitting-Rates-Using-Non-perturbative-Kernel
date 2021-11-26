@@ -45,7 +45,7 @@ namespace EQCD
             }
             else{
                 int tID=omp_get_thread_num();
-                if(!isfinite(gsl_spline_eval(GammaHatQInt,qOvergT,GammaHatQAcc[tID]))){
+                if(!std::isfinite(gsl_spline_eval(GammaHatQInt,qOvergT,GammaHatQAcc[tID]))){
                     std::cerr << "NOT FINITE" << "\n";
                     exit(0);
                 }

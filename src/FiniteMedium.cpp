@@ -30,7 +30,7 @@ static int ForceIntegrand(const int *ndim, const double xx[],
     fval[0] = res.real();
     fval[1] = res.imag();
 
-    if(!isfinite(fval[0]) || !isfinite(fval[1])){
+    if(!std::isfinite(fval[0]) || !std::isfinite(fval[1])){
         std::cerr << fval[0] << " " << fval[1] << "\n";
         std::cerr << " q = " << q << " ";
         std::cerr << " p = " << p << "\n";
@@ -82,7 +82,7 @@ double ForceIntegrand1D( double xx, void *userdata){
         res *= jacobian * q * Gammaq / (4.0 * M_PI * M_PI);
     }
 
-    if(!isfinite(res.real()) || !isfinite(res.imag())){
+    if(!std::isfinite(res.real()) || !std::isfinite(res.imag())){
         std::cerr << res.real() << " " << res.imag() << "\n";
         std::cerr << " q = " << q << " ";
         std::cerr << " p = " << p << "\n";
@@ -178,7 +178,7 @@ namespace Diffusion{
             }
 
         }
-        if(!isfinite(res)){
+        if(!std::isfinite(res)){
             std::cerr << "IntegranMomentI is not finite \n" ;
             exit(0);
         }

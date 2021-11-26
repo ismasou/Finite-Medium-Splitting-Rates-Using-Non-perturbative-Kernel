@@ -49,7 +49,7 @@ std::vector<std::vector< double > > CSVReader::getData()
 				// vec[i].erase(std::remove(vec[i].begin(),vec[i].end(),' '),vec[i].end());
                 doubleVector[i]=stod(vec[i]);
                 // doubleVector[i]=boost::lexical_cast<double>(vec[i]);
-				if(!isfinite(doubleVector[i])){
+				if(!std::isfinite(doubleVector[i])){
 					printf("%s, %g\n", vec[i].c_str(), doubleVector[i]);
 				}
 

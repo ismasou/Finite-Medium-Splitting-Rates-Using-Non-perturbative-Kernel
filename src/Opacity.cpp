@@ -121,7 +121,7 @@ namespace Opacity{
         }
 
         
-        if(!isfinite(fval[0])){
+        if(!std::isfinite(fval[0])){
             std::cerr << fval[0] << "\n";
             std::cerr << " q = " << q << " ";
             std::cerr << " p = " << p << "\n";
@@ -213,13 +213,7 @@ int main(int argc, char **argv){
     Opacity::OUTPUTRate();
     std::cerr << "# OUTPUT Initial Condition \n";
 
-    #if(RATETYPE == FULLRATE)
-        TimeEvolution::Evolve();
-    #endif
-
-    #if(RATETYPE == OPACITY)
-        Opacity::Evolve();
-    #endif
+    Opacity::Evolve();
 
     Clear();
     return 0;
