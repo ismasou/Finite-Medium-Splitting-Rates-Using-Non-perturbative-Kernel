@@ -12,7 +12,7 @@ GToGG=11
 QToQG=21
 # Splitting rate of a gluon splitting to a quark anti-quark pair g->qqbar
 GToQQ=12
-PROCESS=${GToGG}
+PROCESS=${QToQG}
 
 all: FullRate OpacityRate OpacityImproved ImprovedOpacity
 
