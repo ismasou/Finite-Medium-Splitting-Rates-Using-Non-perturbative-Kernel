@@ -36,7 +36,7 @@ Pqg(z) = CF*(1+(1.-z)**2)/z;
 
 FONTSIZE = '\large '
 set log
-set key at graph 0.99, graph 0.4 width 1 height 3 font ',30'
+set key at graph 0.99, graph 0.45 width 1 height 3 font ',30'
 set xlabel FONTSIZE.' Evolution time: $t [fm/c]$ '
 
 set xrange[0.12:10]
@@ -51,27 +51,22 @@ set output File.".tex"
 
 set ylabel FONTSIZE.' Splitting rate: $\frac{1}{g^{4}T}\frac{d\Gamma (P,z)}{dz}$' offset 3,0
 set format y FONTSIZE.' $10^{%T}$'
-set yrange[2e-5:1]
+set yrange[2e-6:1e-3]
+# set auto y
 set log y
 set ytics autofreq
 set label 1 FONTSIZE.' $g\to qq$' at graph 0.05, graph 0.95
 set label 2 gprintf(FONTSIZE.' $z=%g$',z) at graph 0.05, graph 0.85
 EQCDDat   = system(sprintf(" awk '( ($2/%g-1)*($2/%g-1) < 0.002 && ($1/%g-1)*($1/%g-1) < 0.001 ){ print $5}' ../InfiniteLData/EQCDFullRate-T500.txt ",z,z,P,P))
 
-LO(x)   = LODat/gs2**2*Theta(x,1)*Pqg(z)
-NLO(x)  = NLODat/gs2**2*Theta(x,1)*Pqg(z)
-EQCD(x) = EQCDDat/gs2**2*Theta(x,1)*Pqg(z)
-
-LOBH = 0.052472/gs2**2
-NLOBH = 0.143428/gs2**2
-DEBBH = 0.0601309/gs2**2
+EQCD(x) = EQCDDat/gs2**2*Theta(x,1)*Pqq(z)
 
 
 # print sprintf("z=%g",z)
-pl "FullRate/Rate-P300-z".gprintf("%g",z).".txt" u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Pqg(z)) w l ls lsEQCD lw 3 ti FONTSIZE.' $T=500$MeV',\
-	"Opacity/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqg(z)) w l ls lsLO lw 3 dt 3 ti FONTSIZE.' Opacity N=1',\
-	"OpacityImproved/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqg(z)) w l ls lsNLO lw 3 dt 3 ti FONTSIZE.' Opacity N=x',\
-	"HO/Rate-P300-z".gprintf("%g",z).".txt"   u ( TofmOverC*TimeConversion(P,z)*$1*Theta(TofmOverC*TimeConversion(P,z)*$1,0.4)):(($2)/gs2**2*Theta1($1,100.5)*Pqg(z)) smo cs ls 4 lw 3 dt 4 ti FONTSIZE.' NLO-HO',\
+pl "FullRate/Rate-P300-z".gprintf("%g",z).".txt" u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Pqq(z)) w l ls lsEQCD lw 3 ti FONTSIZE.' $T=500$MeV',\
+	"Opacity/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqq(z)) w l ls lsLO lw 3 dt 3 ti FONTSIZE.' Opacity N=1',\
+	"OpacityImproved/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqq(z)) w l ls lsNLO lw 3 dt 3 ti FONTSIZE.' Opacity N=x',\
+	"HO/Rate-P300-z".gprintf("%g",z).".txt"   u ( TofmOverC*TimeConversion(P,z)*$1*Theta(TofmOverC*TimeConversion(P,z)*$1,0.4)):(($2)/gs2**2*Theta1($1,100.5)*Pqq(z)) smo cs ls 4 lw 3 dt 4 ti FONTSIZE.' NLO-HO',\
 	EQCD(x) w l lw 3 lc rgb "#aaaaaa" dt "-" ti FONTSIZE.' AMY'
 
 set output

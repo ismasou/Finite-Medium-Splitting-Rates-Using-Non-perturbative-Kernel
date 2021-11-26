@@ -551,6 +551,8 @@ void OUTPUTRate(){
     if( t == tmin ){
         RateFile.open(RateFolder.str().c_str(),std::ofstream::out);
         RateFile << "# Parameter : " << Process << " gs = " << g << " " << "P = " << P << " " << "T = " << Temp << " " << "z = " << zVal << " mDSqr= " << mDSqr << "\n";
+        RateFile << "# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(T P(z)) dGamma/dz \n";
+
     }
     else{
         Result = RateIntegrand::Integral();

@@ -334,16 +334,19 @@ void Evolve(){
     gsl_spline_init(Spectrum1,tVals,SpectrumVals1,Nx);
     gsl_spline_init(Spectrum2,tVals,SpectrumVals2,Nx);
     gsl_interp_accel *acc= gsl_interp_accel_alloc();
-    RateFile << " t Sum LODeriv NLODeriv NLODeriv2 LOSpect NLOSpect NLOSpect2 "<< std::endl;
+    // RateFile << " t Sum LODeriv NLODeriv NLODeriv2 LOSpect NLOSpect NLOSpect2 "<< std::endl;
+    RateFile << "# Parameter : " << Process << " gs = " << g << " " << "P = " << P << " " << "T = " << Temp << " " << "z = " << zVal << " mDSqr= " << mDSqr << "\n";
+    RateFile << "# Columns: 1- Time: T^2 t/(P*z*(1-z))    2- 1/(g^4T P(z)) dGamma/dz \n";
     for(int i=0;i<Nx;i++){
         RateFile << tVals[i]/(2.*P*zVal*(1-zVal)) << " " 
                  << LeadingOrder::Rate(tVals[i]) + gsl_spline_eval_deriv(Spectrum2,tVals[i],acc) << " "
-                 << LeadingOrder::Rate(tVals[i]) << " "
-                 << gsl_spline_eval_deriv(Spectrum1,tVals[i],acc) << " "
-                 << gsl_spline_eval_deriv(Spectrum2,tVals[i],acc) << " "
-                 << SpectrumVals[i]  << " "
-                 << SpectrumVals1[i] << " "
-                 << SpectrumVals2[i] << std::endl;
+                //  << LeadingOrder::Rate(tVals[i]) << " "
+                //  << gsl_spline_eval_deriv(Spectrum1,tVals[i],acc) << " "
+                //  << gsl_spline_eval_deriv(Spectrum2,tVals[i],acc) << " "
+                //  << SpectrumVals[i]  << " "
+                //  << SpectrumVals1[i] << " "
+                //  << SpectrumVals2[i] 
+                 << std::endl;
     }
     RateFile.close();
 }

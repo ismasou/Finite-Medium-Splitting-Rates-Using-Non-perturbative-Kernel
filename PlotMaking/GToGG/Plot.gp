@@ -58,12 +58,12 @@ set label 1 FONTSIZE.' $g\to gg$' at graph 0.05, graph 0.95
 set label 2 gprintf(FONTSIZE.' $z=%g$',z) at graph 0.05, graph 0.85
 EQCDDat   = system(sprintf(" awk '( ($2/%g-1)*($2/%g-1) < 0.002 && ($1/%g-1)*($1/%g-1) < 0.001 ){ print $3}' ../InfiniteLData/EQCDFullRate-T500.txt ",z,z,P,P))
 
-EQCD(x) = EQCDDat/gs2**2*Theta(x,1)*Pqg(z)
+EQCD(x) = EQCDDat/gs2**2*Theta(x,1)*Pgg(z)
 
-pl "FullRate/Rate-P300-z".gprintf("%g",z).".txt" u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Pqg(z)) w l ls lsEQCD lw 3 ti FONTSIZE.' $T=500$MeV',\
-	"Opacity/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqg(z)) w l ls lsLO lw 3 dt 3 ti FONTSIZE.' Opacity N=1',\
-	"OpacityImproved/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pqg(z)) w l ls lsNLO lw 3 dt 3 ti FONTSIZE.' Opacity N=x',\
-	"HO/Rate-P300-z".gprintf("%g",z).".txt"   u ( TofmOverC*TimeConversion(P,z)*$1):(($2)/gs2**2*Theta1($1,100.5)*Pqg(z)) smo cs ls 4 lw 3 dt 4 ti FONTSIZE.' NLO-HO',\
+pl "FullRate/Rate-P300-z".gprintf("%g",z).".txt" u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Pgg(z)) w l ls lsEQCD lw 3 ti FONTSIZE.' $T=500$MeV',\
+	"Opacity/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pgg(z)) w l ls lsLO lw 3 dt 3 ti FONTSIZE.' Opacity N=1',\
+	"OpacityImproved/Rate-P300-z".gprintf("%g",z).".txt"   u (TofmOverC*TimeConversion(P,z)*$1):($2/gs2**2*Theta1($1,100.5)*Pgg(z)) w l ls lsNLO lw 3 dt 3 ti FONTSIZE.' Opacity N=x',\
+	"HO/Rate-P300-z".gprintf("%g",z).".txt"   u ( TofmOverC*TimeConversion(P,z)*$1):(($2)/gs2**2*Theta1($1,100.5)*Pgg(z)) smo cs ls 4 lw 3 dt 4 ti FONTSIZE.' NLO-HO',\
 	EQCD(x) w l lw 3 lc rgb "#aaaaaa" dt "-" ti FONTSIZE.' AMY'
 
 set output

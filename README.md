@@ -14,7 +14,7 @@ Different programs are available to obtain different rates:
 ## Runing 
 
 To run any executable `exe.out`, run the command `./exe.out -P x -z y` where $P=x$ is the parent particle's energy in units of temperature $[T]$, and $z=y$ is the momentum fraction of the emission with energy $\omega= zP$. 
-The rate is written into a file `OUTPUTFolder/Rate-Px-zy.txt` where the first column is the dimensionless time $\tau = \frac{t}{2Pz(1-z)}T$ and the second column is the rate $\frac{d\Gamma_{a}^{bc}}{dz}(P,z,t)$ in units of $T$. 
+The rate is written into a file `OUTPUTFolder/Rate-Px-zy.txt` where the first column is the dimensionless time $\tau = \frac{t}{2Pz(1-z)}T^2$ and the second column is the rate $\frac{d\Gamma_{a}^{bc}}{dz}(P,z,t)$ in units of $T$. 
 
 
 ## Example with Plot
