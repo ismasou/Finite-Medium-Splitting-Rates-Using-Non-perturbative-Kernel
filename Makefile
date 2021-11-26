@@ -13,7 +13,7 @@ GToGG=11
 QToQG=21
 # Splitting rate of a gluon splitting to a quark anti-quark pair g->qqbar
 GToQQ=12
-PROCESS=${GToGG}
+PROCESS=${QToQG}
 
 FullRate : 
 	g++ -std=c++17 -I/usr/local/include/ -L/usr/local/lib/ -DPROCESS=${PROCESS} -DCOLLISION_KERNEL=${COLLISION_KERNEL} -pipe -O3 src/FiniteMedium.cpp -o FullRate.out -lpthread -lm -ldl -lcuba -fopenmp -g -lgsl -lgslcblas 
