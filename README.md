@@ -20,5 +20,5 @@ The rate is written into a file `OUTPUTFolder/Rate-Px-zy.txt` where the first co
 ## Example with Plot
 In addition to the makefile, we provide 3 scripts `GToGG.sh`, `QToGQ.sh` and `GToQQ.sh`. In order to create comparison plots of the non-perturbative broadening kernel using all the different approximation at $P=300T$ and $z=0.25$, follow these steps:
 
-- Run each file successively using `source File.sh`: it computes the radiation rate for all the different approximation and the output is moved to the folders inside `PlotMaking/File`. 
+- Run each file successively using `source File.sh`: it computes the radiation rate for all the different approximation and the output is moved to the folders inside `PlotMaking/Process/File`. 
 - Then cd to the folder `cd PlotMaking` and run `source MakePlots.sh`
