@@ -1,6 +1,8 @@
 # Finite-Medium-Splitting-Rates-Using-Non-perturbative-Kernel
 Determination of the medium-induced splitting rates using non-perturbatively determined broadening kernel
 
+
+For details of the physics: [1] Splitting rates in QCD plasmas from a non-perturbative determination of the momentum broadening kernel $C(q_{\bot})$ Soeren Schlichting (Bielefeld U.), Ismail Soudi (Bielefeld U. and Wayne State U.) [arXiv:2111.13731](https://arxiv.org/abs/2111.13731)
 ## Dependencies :
 - This program depends on the latest [Boost](https://www.boost.org/) library as well as the [GNU Scientific library](https://www.gnu.org/software/gsl/) and the [cuba](http://www.feynarts.de/) multidimensional integration library v3.11.
 
